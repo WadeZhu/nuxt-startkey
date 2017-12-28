@@ -1,0 +1,35 @@
+.klg-fade-enter-active,
+.klg-fade-leave-active {
+  opacity: 1;
+  transition: opacity linear 0.2s
+}
+
+.klg-fade-enter,
+.klg-fade-leave-to {
+  opacity: 0;
+}
+
+.klg-dialog-content-enter-active,
+.klg-dialog-content-leave-active {
+  opacity: 1;
+  transition-duration: 400ms;
+  transform: scale(1) !important;
+  transition-property: transform, opacity !important;
+}
+
+.klg-dialog-content-enter,
+.klg-dialog-content-leave-active {
+  opacity: 0;
+  transform: scale(1.185) !important;
+}
+
+.klg-dialog-mask-enter,
+.klg-dialog-mask-leave-active {
+  opacity: 0;
+}
+
+.klg-dialog-mask-leave-active,
+.klg-dialog-mask-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
