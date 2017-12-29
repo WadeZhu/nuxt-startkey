@@ -7,7 +7,7 @@
       <div class="tab" :class="{active: item.value === activeValue}" v-for="(item, index) in tabvalue" :key="index" @click="activeValue = item.value">{{item.label}}</div>
     </div>
     <transition name="fade">
-      <Base v-if="activeValue === 'base'" :product="product"/>
+      <BaseInfo v-if="activeValue === 'base'" :product="product"/>
       <Repayment v-if="activeValue === 'repayment'" />
       <Risk v-if="activeValue === 'risk'" />
       <About v-if="activeValue === 'about'" />
@@ -16,23 +16,24 @@
 </template>
 
 <script>
-import Base from '~/components/production_introduction/base.vue'
+import BaseInfo from '~/components/production_introduction/base.vue'
 import Repayment from '~/components/production_introduction/repayment.vue'
 import Risk from '~/components/production_introduction/risk.vue'
 import About from '~/components/production_introduction/about.vue'
 import AppHeader from '~/components/common/app-header'
-// import Loading from '~/components/basic/klg-loading'
-import '~/plugins/filter'
-// if (process.BROWSER_BUILD) {
-//   require('~/plugins/device')
-// }
-import '~/plugins/device'
+import Loading from '~/components/basic/klg-loading'
+// import '~/plugins/device'
 
 export default {
   name: 'main',
+  head () {
+    return {
+      title: '产品介绍'
+    }
+  },
   components: {
     AppHeader,
-    Base,
+    BaseInfo,
     Repayment,
     Risk,
     About
@@ -58,25 +59,25 @@ export default {
         groupType: null
       }
     }
+  },
+  methods: {
+    async getProduct () {
+      const instance = Loading()
+      try {
+        const {body} = await this.$http.get(`/api/v2/product/getProductInfo`, {
+          params: {productId: this.$urlQuery.productId}
+        })
+        this.product = body
+      } catch (error) {
+        console.log(error)
+      } finally {
+        instance && instance.close()
+      }
+    }
+  },
+  created () {
+    this.getProduct()
   }
-  // methods: {
-  //   async getProduct () {
-  //     const instance = Loading()
-  //     try {
-  //       const {body} = await this.$http.get(`/api/v2/product/getProductInfo`, {
-  //         params: {productId: this.$urlQuery.productId}
-  //       })
-  //       this.product = body
-  //     } catch (error) {
-  //       this.error = error
-  //     } finally {
-  //       instance && instance.close()
-  //     }
-  //   }
-  // },
-  // created () {
-  //   this.getProduct()
-  // }
 }
 </script>
 
@@ -170,6 +171,9 @@ export default {
     &-img {
       margin-top: 30px;
       text-align: center;
+      img {
+        width: 100%;
+      }
     }
     .orange {
       color: #F2A643;

@@ -34,12 +34,13 @@ module.exports = {
     //     })
     //   }
     // },
-    vendor: ['~/plugins/device'],
+    vendor: ['~/plugins/commonPlugin'],
     postcss: [
       require('postcss-px2rem')({ remUnit: 75 }),
       require('autoprefixer')({
         browsers: ['iOS >= 7', 'Android >= 4.1']
       })
     ]
-  }
+  },
+  plugins: [{src: '~/plugins/commonPlugin', ssr: true}]
 }
