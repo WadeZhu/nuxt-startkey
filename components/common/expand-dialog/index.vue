@@ -70,10 +70,10 @@
     .img {
       width: 600px;
       height: 790px;
-      background: url('/msite/static/image/expand/expandAccount_Bg@2x.png') no-repeat;
+      background: url('~/static/image/expand/expandAccount_Bg@2x.png') no-repeat;
       background-size: 100% 100%;
       margin: 0 auto;
-      .retina-3x({ background-image: url('/msite/static/image/expand/expandAccount_Bg@3x.png'); })
+      .retina-3x({ background-image: url('~/static/image/expand/expandAccount_Bg@3x.png'); })
     }
     .new-user-task2-user {
       background: url('https://dn-kaolalicai.qbox.me/app/popup_3888@2x.png') no-repeat;
