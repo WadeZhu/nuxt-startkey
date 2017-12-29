@@ -2,8 +2,7 @@ import { queryString } from '~/assets'
 
 let query
 try {
-  let search = process.BROWSER_BUILD && loaction.search
-  query = queryString.parse(search)
+  query = queryString.parse(location.search)
 } catch (error) {
   console.log(error)
 }

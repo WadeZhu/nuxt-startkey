@@ -71,7 +71,7 @@ export default {
       } catch (error) {
         console.log(error)
       } finally {
-        instance && instance.close()
+        instance.close()
       }
     }
   },

@@ -3,7 +3,7 @@ import device from '../device'
 import bridge from '../bridge'
 import * as app from './redirectInApp'
 import * as web from './redirectInWeb'
-import Toast from '../../components/klg-toast/index.js'
+import Toast from '~/components/basic/klg-toast/index.js'
 
 export function buildUrl(url, query) {
   return web.buildUrl(url, query)

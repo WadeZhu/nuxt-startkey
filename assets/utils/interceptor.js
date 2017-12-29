@@ -1,9 +1,9 @@
-import Toast from '../components/klg-toast'
+import Toast from '~/components/basic/klg-toast'
 import { getUserInfo } from '../services/auth'
 import device from '../services/device'
 import { redirectLogin, redirectRecharge } from '../services/redirect'
-import ExpandDialog from 'components/expand-dialog/index.js'
-import BindCardDialog from 'components/bindCard-dialog/index.js'
+import ExpandDialog from '~/components/common/expand-dialog/index.js'
+import BindCardDialog from '~/components/common/bindCard-dialog/index.js'
 
 const RESPONSE = {
   SUCCESS: 0,   // 成功
