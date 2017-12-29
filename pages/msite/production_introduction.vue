@@ -1,7 +1,7 @@
 <template>
   <div>
     <AppHeader title="产品介绍">
-      <a class="app-header-back" slot="left" ></a>
+      <a class="app-header-back" slot="left" :href="href"></a>
     </AppHeader>
     <div class="tabbar">
       <div class="tab" :class="{active: item.value === activeValue}" v-for="(item, index) in tabvalue" :key="index" @click="activeValue = item.value">{{item.label}}</div>
@@ -77,6 +77,11 @@ export default {
   },
   created () {
     this.getProduct()
+  },
+  computed: {
+    href() {
+      return '/msite/invest?productId=' + (this.$urlQuery && this.$urlQuery.productId)
+    }
   }
 }
 </script>

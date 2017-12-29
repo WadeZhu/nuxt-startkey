@@ -67,10 +67,10 @@
     width: 204px;
     height: 200px;
     margin: 10px auto;
-    background: url('/msite/static/image/common/icon_bundCard_remind@2x.png') no-repeat;
+    background: url('~/static/image/common/icon_bundCard_remind@2x.png') no-repeat;
     background-size: 100% 100%;
     .retina-3x({
-      background-image: url('/msite/static/image/common/icon_bundCard_remind@3x.png')
+      background-image: url('~/static/image/common/icon_bundCard_remind@3x.png')
     })
   }
   .btn-container {
